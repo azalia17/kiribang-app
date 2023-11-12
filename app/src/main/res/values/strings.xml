@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">angkot</string>
+    <string name="home">Home</string>
+    <string name="list">List</string>
+    <string name="maps">Maps</string>
+    <string name="this_is_home">This is Home Screen</string>
+    <string name="this_is_list">This is List Screen</string>
+    <string name="this_is_maps">This is Maps Screen</string>
+</resources>
