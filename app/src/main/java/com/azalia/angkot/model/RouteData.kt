@@ -243,4 +243,68 @@ object RouteData {
                    "Krekot", "MNC Bank", "Jalan Batu Jajar", "Panin Bank", "Gajah Mada", "Jalan Keselamatan", "Jalan Kejayaan Kelurahan Krukut", "Gedung Arsip", "Grand Paragon", "Jalan Kesederhanaan", "Olimo 2", "Novotel", "Glodok 2", "Pasar Glodok", "Jalan Pintu Besar Selatan 2", "Perempatan Pasar Pagi", "Kota 2",
                    "Museum Bank Indonesia", "Simpang Kali Besar Barat", "Jalan Kali Besar Barat 1", "Kali Besar Barat 1", "Simpang Kopi Kali Besar Barat", "Pertigaan Terminal Kota", "Terminal Kota")
         )
+        Route("M12",
+            26,
+            "Rute 2",
+            43,
+            listOf("Terminal Kota", "Jalan Kali Besar Timur", "Jalan Cengkeh", "TAMAN Kota Intan", "Jalan Cengkeh", "Jalan Kunir 2", "Hotel 1001", "Simpang Kunir Kemukus", "Kecamatan TAMAN Sari", "BNI 46", "Stasiun Jakarta Kota", "Bank DKI", "Jalan Pinangsia II", "Jembatan Glodok", "Glodok Plaza", "Glodok 1", "LTC Glodok",
+                   "The Food Place", "Olimo 1", "Jalan Kebon Jeruk XIX", "108 the New Atmosphere", "Jalan Kebon Jeruk XIV", "Masjid Jami Kebon Jeruk", "Jalan Kebon Jeruk III", "Perempatan Hayam Wuruk", "Pasar Sawah Besar", "Jalan Kampak", "Jalan Sukarjo Wiryopranoto, 83a", "Stasiun Sawah Besar 1", "Classic Hotel",
+                   "Metro Pasar Baru 1", "Toyota 2000 Samanhudi", "Graha Sindhu BPK Penabur", "Lampu Merah Samanhudi", "Garuda Indonesia", "Golden Truly", "Pasar Baru Timur 2", "Koarmabar", "Sekolah Strada Gunung Sahari", "Sekolah Penabur Gunung Sahari", "Jalan Gunung Sahari 1", "Terminal Pasar Senen 1", "Pasar Senen 1")
+        )
+        Route("M13",
+            27,
+            "Rute 1",
+            69,
+            listOf("Jalan Kapuk Muara 5a", "Jalan Kapukraya 3a", "Jalan Kapukraya 2a", "Jalan Kapukraya 1a", "Jalan Kapukraya..", "Jalan Kapuk Raya, 11", "Jalan Kapukraya 1", "Jalan Kapukraya 1c", "Jalan Kamal Muara 1", "Jalan Kamal Muara 2", "Jalan Kamal Muara 3", "Kamal Cengkareng 1", "Seberang City Park Cengkareng", "Boulevard Raya, Null",
+                   "Jalan Kamal Cengkareng, 26", "Simpang Kapuk Cengkareng", "Kamal Cengkareng 4", "Outer Ring 1", "Jalan Outer Ring Road 4b", "Polsek Cengkareng 1", "SDN Cengkareng Timur 05", "Jalan Outer Ring Road 2b", "Ramayana Cengkareng", "Pasar Cengkareng", "Kecamatan Cengkareng", "Seberang Jalan Utama III", "Jalan Nirmala Raya 2",
+                   "Jalan Cemara, 11", "Jalan Sumur Bor Raya 2b", "Jalan Utan Jati, 25", "Jalan Utan Jati 1b", "Jalan Utan Jati, 1", "Simpang Jalan Peta Selatan", "Pasar Hari Hari Kalideres", "City Square Business Park", "Seberang GANG Bali III Kalideres", "Jalan Peta Selatan, 19", "Kalideres")
+        )
+        Route("M13",
+            28,
+            "Rute 2",
+            74,
+            listOf("Kalideres", "Jalan Daan Mogot, 15", "Seberang Polsek Kalideres", "Jalan Daan Mogot, 33", "Jalan Daan Mogot, 3", "Jalan Daan Mogot 49c", "Jalan Daan Mogot, 45", "Jalan Peta Selatan 1", "Heinz ABC Kalideres", "Seberang Hari Hari Swalayan", "Jalan Citra 7, 5", "Jalan Citra Garden Vii, 29", "Jalan Peta Utara", "Jalan Utan Jati, 1",
+                   "Jl. Peta Barat 28b", "Seberang Pospol Daan Mogot Baru", "Jl. Peta Barat 29b", "Jalan Anggrek", "Jalan Cemara 1d", "Jalan Utama Raya 1b", "BSI Cengkareng", "Jalan Outer Ring Road 4", "Lingkar Luar", "Jalan Outer Ring Road 5", "Gerbang Keluar TAMAN Palem Lestari", "Perumahan KFT 1", "Simpang Kapuk Cengkareng", "Kamal Cengkareng 4",
+                   "Jalan Boulevard Raya", "Boulevard Raya, Null", "Boulevard Raya, Null", "Boulevard Raya, Null", "Seberang City Park Cengkareng", "Jalan Kamal Cengkareng, 6", "Jalan Kamal Cengkareng 1a", "Jalan Kamal Muara 3a", "Jalan Kamal Muara 2a", "Jalan Kamal Muara 1a", "Jalan Kapukraya 1b", "Jalan Kapukraya 2b", "Jalan Kapuk Raya, 1a",
+                   "SPBU Pertamina Kapuk Raya", "Jalan Kapuk Raya, 27", "Jalan Kapukraya 2", "Seberang Masjid Jami AL Musyarofah", "Pertigaan Kapuk Muara")
+        )
+        Route("M14",
+            29,
+            "Rute 1",
+            46,
+            listOf("Terminal Tanjung Priok 1", "Terminal Tanjung Priok", "GANG 0", "GANG 0, 10", "Jalan Gadang, 6-12", "Jalan Gadang, 10", "Jalan Gadang, 35f", "Jalan Gadang, 36f", "Jalan Gadang, 37b", "SMKN 12", "Bugis 10", "Jalan Bugis, 116a", "Bugis 76", "Jalan Kebon Bawang Vi, 34", "Jalan Kebon Bawang Vi, 22", "Jalan Kebon Bawang Vi, 2",
+                   "Jalan Anggrek, 4", "Jalan Anggrek, 18", "Jalan Anggrek, 30", "Cempaka 24", "Sindang 301", "Sindang 45", "Sindang 19-22", "Sindang 1", "Sindang 7", "Deli", "Jalan Deli, 23", "RSUD Koja 2", "Jalan Raya Pelabuhan, 131", "Jalan Jampea 14", "Jalan Cilincing Raya 27", "Jalan Raya Cilincing, 6", "Jalan Cilincing Raya 40",
+                   "Jalan Cilincing Raya 41", "Jalan Cilincing Raya 42", "Cilincing Raya 1", "Jalan Cilincing Raya 1", "Jalan Cilincing Raya 2", "Jalan Cilincing Raya 3", "Cilincing 12", "Jalan Cilincing Baru, 20-22", "Cilincing 6", "Cilincing (Nelayan)", "Jalan Kalibaru Timur Iii, 26", "Jalan Kalibaru Timur Iii, 33-34",
+                   "Jalan Kalibaru Timur Iii, 4", "Jalan Kalibaru Timur Iii, 20", "Jalan Kalibaru Timur Iii, 16", "Cilincing Kelapa", "Jalan Cilincing Lama, 16a", "Jalan Cilincing Kelapa, 30", "Jalan Cilincing Kelapa, 32", "Jalan Cilincing Raya 8", "Jalan Cilincing Raya 9", "Jalan Cilincing Raya 10", "Jalan Cilincing Raya 11")
+        )
+        Route("M14",
+            30,
+            "Rute 2",
+            48,
+            listOf("Jalan Cilincing Raya, 22", "Simpang Pasar Pagi Raya Cilincing", "Jalan Cilincing Raya, 1", "BPJS Ketenagakerjaan Marunda", "Jalan Cilincing Lama, 34", "Jalan Cilincing Kelapa, 28", "Jl. Kalibaru Timur", "Jalan Kalibaru Timur Iii, 31", "Jalan Kalibaru Timur Iii, 27", "Jalan Kalibaru Timur Iii, 5", "Jalan Kalibaru Timur Iii, 17",
+                   "Jalan Kalibata Timur, 6", "Jalan Kali Baru Lll E, 10", "Jalan Cilincing Baru, 2", "Jalan Cilincing Baru, 4", "Jalan Cilincing Baru, 24-25", "Jalan Cilincing Baru, 57", "Jalan Cilincing Raya, 3-4", "Jalan Raya Cilincing, 37", "Jalan Dewa Ruci", "Jalan Cangkuang Cilingcing Raya 11", "Jalan Cangkuang Cilingcing Raya 12",
+                   "Jalan Cangkuang Cilingcing Raya 13", "Jalan Cangkuang Cilingcing Raya 14", "Jalan Cangkuang Cilingcing Raya 15", "Simpang Jalan Kramat Jaya 1", "Jalan Cangkuang Cilingcing Raya 17", "Jalan Cangkuang Cilingcing Raya 18", "Jalan Cangkuang Cilingcing Raya 19", "Jalan Cangkuang Cilingcing Raya 20", "Jalan Cangkuang Cilingcing Raya 21",
+                   "Jalan Cangkuang Cilingcing Raya 22", "Jalan Cangkuang Cilingcing Raya 23", "Jalan Cangkuang Cilingcing Raya 24", "Jalan Cangkuang Cilingcing Raya 25", "Jalan Cangkuang Cilingcing Raya 26", "RSUD Koja", "Delii", "Seberang Jalan Sindang Terusan", "Sindang 27", "Sindang 9", "Jalan Sindang, 281", "Sindang 52", "Jalan Sindang, 20",
+                   "Jalan Sindang, 26", "Jalan Melati, 37", "Yos 5", "Jalan Bugis, 9-11", "Swadaya 31", "Bugis 34", "Bugis", "Jalan Bugis, 2a", "Jalan Gadang, 38a", "Jalan Gadang, 24", "Jalan Gadang, 35h", "Jalan Gadang, 26", "Jalan Gadang, 1", "Gorontalo Raya, Null", "Gg 0 2", "Masjid Raya Al-Husna", "PTT", "Terminal Tanjung Priok 1")
+        )
+        Route("M15",
+            31,
+            "Rute 1",
+            50,
+            listOf("Terminal Tanjung Priok", "Jalan Laksamana R. E Martadinata, 23", "Jalan R. E. Martadinata 1", "Jalan R. E. Martadinata 2", "Jalan R. E. Martadinata 3", "Jalan R. E. Martadinata 4", "Jalan R. E. Martadinata 5", "Jalan R. E. Martadinata 6", "Jalan Bak Air I", "TAMAN Asem Ppsu Tanjung Priok", "Jalan R. E. Martadinata 9",
+                   "Jalan R. E. Martadinata 10", "Seberang Jalan Industri Tanjung Priok", "Sekolah Yanindo Jakarta", "Jalan R. E. Martadinata 13", "Jalan R. E. Martadinata 14", "Jalan R. E. Martadinata 15", "Jalan R. E. Martadinata 16", "Jalan R. E. Martadinata 17", "Jalan R. E. Martadinata 18", "Jalan R. E. Martadinata 19", "Jalan R. E. Martadinata 20",
+                   "Jalan R. E. Martadinata 21", "Jalan R. E. Martadinata 22", "Jalan R. E. Martadinata 23", "Jalan R. E. Martadinata 24", "Jalan RS Paru-Paru", "Jalan R. E. Martadinata 26", "Jalan R. E. Martadinata 27", "Jalan R. E. Martadinata 28", "Jalan R. E. Martadinata 29", "Jalan R. E. Martadinata 30", "Jalan R. E. Martadinata 31",
+                   "Jalan R. E. Martadinata 32", "Jalan R. E. Martadinata 33", "Jalan R. E. Martadinata 34", "Jalan R. E. Martadinata 35", "Jalan R. E. Martadinata 36", "Jalan R. E. Martadinata 37", "Jalan R. E. Martadinata 38", "Jalan Budi Mulia", "Jalan R. E. Martadinata 40", "Jalan R. E. Martadinata 41", "Jalan R. E. Martadinata 42",
+                   "Jalan R. E. Martadinata 43", "Jalan R. E. Martadinata 44", "Executive Hotel", "Jalan Karang Bolong Raya", "Jalan Karang Bolong Raya, 9", "Jalan Karang Bolong Raya, 11-14", "Jalan Parang Tritis", "Kp.Bandan", "Jalan Kampung Bandan, Null", "Kp.Bandan 2", "Kp.Bandan 3", "Kecamatan TAMAN Sari", "BNI 46", "Stasiun Jakarta Kota")
+        )
+        Route("M15",
+            32,
+            "Rute 2",
+            58,
+            listOf("Kota", "Museum Bank Indonesia", "Jalan Pintu Besar Utara 1", "Jalan Kali Besar Barat 1", "Kali Besar Barat 1", "Jalan Kali Besar Timur", "Jalan Cengkeh", "Jalan Tongkol 3b", "Jalan Tongkol 1b", "Jalan Tongkol, 10", "Jalan Lodan Raya, 9", "Jalan Lodan Raya, 7a", "Jalan Lodan Raya, 5a", "Jalan Lodan Raya, 13", "Jalan Lodan Raya, 12"
+                   "Jalan Lodan Raya, 43", "Jalan Lodan Raya, 25", "RE Martadinata TU", "RE Martadinata 1z", "RE Martadinata 1zb", "RE Martadinata 1zc", "RE Martadinata 1zv", "Martadinata", "Martadinata2", "Jalan Budi Mulia Utara", "Martadinata 5", "Martadinata 6", "Martadinata 7", "Martadinata 8", "Jalan Lodan Raya 13", "Jalan Lodan Raya",
+                   "Martadinata", "Jalan R. E. Martadinata 26b", "Jalan R. E. Martadinata 25b", "Jalan R. E. Martadinata 24b", "Martadinata 22", "Martadinata 32", "Martadinata 42", "Martadinata 52", "Jalan R. E. Martadinata 14b", "Jalan R. E. Martadinata 13b", "Sekolah Yanindo Jakarta", "Jalan Industri Tanjung Priok", "Jalan R. E. Martadinata 10b",
+                   "Jalan R. E. Martadinata 9b", "Seberang TAMAN Asem Ppsu", "Seberang Jalan Bak Air I", "Jalan R. E. Martadinata 6b", "Jalan R. E. Martadinata 5b", "Jalan R. E. Martadinata 4b", "Jalan R. E. Martadinata 3b", "Jalan R. E. Martadinata 1b", "Terminal Tanjung Priok 1")
+        )
+}
 }
