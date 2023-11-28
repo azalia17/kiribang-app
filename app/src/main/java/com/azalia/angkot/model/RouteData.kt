@@ -306,5 +306,88 @@ object RouteData {
                    "Martadinata", "Jalan R. E. Martadinata 26b", "Jalan R. E. Martadinata 25b", "Jalan R. E. Martadinata 24b", "Martadinata 22", "Martadinata 32", "Martadinata 42", "Martadinata 52", "Jalan R. E. Martadinata 14b", "Jalan R. E. Martadinata 13b", "Sekolah Yanindo Jakarta", "Jalan Industri Tanjung Priok", "Jalan R. E. Martadinata 10b",
                    "Jalan R. E. Martadinata 9b", "Seberang TAMAN Asem Ppsu", "Seberang Jalan Bak Air I", "Jalan R. E. Martadinata 6b", "Jalan R. E. Martadinata 5b", "Jalan R. E. Martadinata 4b", "Jalan R. E. Martadinata 3b", "Jalan R. E. Martadinata 1b", "Terminal Tanjung Priok 1")
         )
+        Route("M15A",
+            33,
+            "Rute 1",
+            65,
+            listOf("Terminal Tanjung Priok", "Jalan R. E. Martadinata 1", "Jalan R. E. Martadinata 2", "Jalan R. E. Martadinata 3", "Jalan R. E. Martadinata 4", "Jalan R. E. Martadinata 5", "Jalan R. E. Martadinata 6", "Jalan Bak Air I", "TAMAN Asem Ppsu Tanjung Priok", "Jalan R. E. Martadinata 9", "Jalan R. E. Martadinata 10", "Seberang Jalan Industri Tanjung Priok",
+                   "Sekolah Yanindo Jakarta", "Jalan R. E. Martadinata 13", "Jalan R. E. Martadinata 14", "Jalan R. E. Martadinata 15", "Jalan R. E. Martadinata 16", "Jalan R. E. Martadinata 17", "Jalan R. E. Martadinata 18", "Jalan R. E. Martadinata 19", "Jalan R. E. Martadinata 20", "Jalan R. E. Martadinata 21", "Jalan R. E. Martadinata 22", "Jalan R. E. Martadinata 23",
+                   "Jalan R. E. Martadinata 24", "Jalan RS Paru-Paru", "Jalan R. E. Martadinata 26", "Jalan R. E. Martadinata 27", "Jalan R. E. Martadinata 28", "Jalan R. E. Martadinata 29", "Jalan R. E. Martadinata 30", "Jalan R. E. Martadinata 31", "Stasiun Ancol", "Jalan R. E. Martadinata 33", "Jalan R. E. Martadinata 34", "Jalan R. E. Martadinata 35", "Jalan R. E. Martadinata 36",
+                   "Jalan R. E. Martadinata 37", "Jalan R. E. Martadinata 38", "Jalan Budi Mulia", "Jalan R. E. Martadinata 40", "Jalan R. E. Martadinata 41", "Jalan R. E. Martadinata 42", "Jalan R. E. Martadinata 43", "Jalan R. E. Martadinata 44", "Executive Hotel", "Jalan Gunung Sahari Raya 1", "Jalan Gunung Sahari Raya 2", "Jalan Gunung Sahari Raya 3", "Pademangan 1',
+                   "Jalan Gunung Sahari Raya 6", "Jalan Ampera VI Gunung Sahari", "Gunung Sahari 3", "Gunung Sahari 3c", "Jalan Gunung Sahari Raya 9", "Jalan Gunung Sahari Raya 10", "Jalan Gunung Sahari Raya 11", "Gunung Sahari Mangga Dua Barat", "Mangga Dua Square", "Jalan Gunung Sahari Raya 10b", "Gunung Sahari Mangga Dua 1", "Jalan Gunung Sahari Raya 8b", "Jalan Gunung Sahari Raya 7b"
+                   "Harco Mangga Dua", "Pasar Tekstil Mangga Dua 2", "Ruko Mangga Dua", "Wisma Eka Jiwa", "Jalan Mangga Dua 3", "Pangeran Jayakarta 1", "Jalan Jembatan Batu 1", "Kota", "Jalan Jembatan Batu 3", "Jalan Pintu Besar Utara 1", "Jalan Kali Besar Barat 1", "Kali Besar Barat 1", "Jalan Cengkeh 2b", "Jalan Kunir 2", "Hotel 1001", "Kecamatan TAMAN Sari", "BNI 46", "Stasiun Jakarta Kota")
+        )
+        Route("M15A",
+            34,
+            "Rute 2",
+            47,
+            listOf("Kota", "GANG Abdul Hamid", "Pasar Pagi Mangga Dua", "Skywalk ITC Mangga Dua", "ITC Mangga Dua", "Pasar Tekstil Mangga Dua", "Grand Boutique Centre", "Jalan Gunung Sahari Raya 6b", "WTC Mangga Dua", "Pademangan WTC Mangga Dua", "Pompa Viaduct Ancol", "Simpang Gunung Sahari Martadinata", "RE Martadinata 1z", "RE Martadinata 1zb", "RE Martadinata 1zc", "RE Martadinata 1zv",
+                   "Martadinata", "Martadinata2", "Jalan Budi Mulia Utara", "Martadinata 5", "Martadinata 6", "Martadinata 7", "Jalan Lodan Raya 13", "Jalan Lodan Raya", "Jalan R. E. Martadinata 29b", "Jalan R. E. Martadinata 28b", "Jalan R. E. Martadinata 27b", "Jalan R. E. Martadinata 26b", "Jalan R. E. Martadinata 25b", "Jalan R. E. Martadinata 24b", "Martadinata 22", "Martadinata 32",
+                   "Martadinata 42", "Martadinata 52", "Jalan R. E. Martadinata 14b", "Jalan R. E. Martadinata 13b", "Sekolah Yanindo Jakarta", "Jalan Industri Tanjung Priok", "Jalan R. E. Martadinata 10b", "Jalan R. E. Martadinata 9b", "Seberang TAMAN Asem Ppsu", "Seberang Jalan Bak Air I", "Jalan R. E. Martadinata 6b", "Jalan R. E. Martadinata 5b", "Jalan R. E. Martadinata 4b",
+                   "Jalan R. E. Martadinata 3b", "Jalan R. E. Martadinata 2b", "Jalan R. E. Martadinata 1b", "Terminal Tanjung Priok 1")
+        )
+        Route("M16",
+            35,
+            "Rute 1",
+            54,
+            listOf("Terminal Pasar Minggu", "Terminal Pasar Minggu 2", "Jalan Raya Pasar Minggu 16b", "Masjid AT Taqwa 2", "Brimob Pejaten Barat 2", "PMD", "Haji Samali", "Jalan Raya Pasar Minggu 9b", "Jalan Raya Pasar Minggu 8b", "Jalan Raya Pasar Minggu 7b", "Jalan Raya Pasar Minggu 6", "TMP Kalibata", "Jalan Pahlawan Kalibata 4b", "Stekpi", "Seberang Kalibata Square", "Stasiun Duren Kalibata 1",
+                   "Stasiun Duren Kalibata 2", "Pahlawan Kalibata 24", "Jalan Pahlawan Kalibata 1a", "Jalan Dewi Sartika 9b", "Jalan Budhi", "Jalan Dewi Sartika 7b", "SMP Marsudirini Dewi Sartika", "Jalan Dewi Sartika 5b", "Tunas Toyota", "Jalan Dewi Sartika 3b", "Jalan Dewi Sartika 2b", "Perempatan Cawang Otista", "Cawang Otista 1", "Otista", "Otista 2", "Halte Mess UI", "Iff - PT Essence Indonesia",
+                   "Halte BRI Otista", "Stis", "Bidara Cina 2", "Klinik Otista", "Terminal Kampung Melayu 3", "Rusun Jatinegara Barat")
+        )
+        Route("M16",
+            36,
+            "Rute 2",
+            52,
+            listOf("Sekolah Cahaya Sakti Otista I", "Jalan Pedati Raya", "Jalan Haji Taslim", "Bidara Cina 1", "Astrido Otista", "Bank Bumi Arta Otista", "Halte GOR Otista", "Jalan Cipinang Cempedak Raya, 1", "Cipinang Cempedak IV", "Jalan Cawang Baru", "Cawang Otista 2", "Cawang Otista", "Amalia Medical Center", "Jalan Dewi Sartika 3", "Sekolah Muhammadiyah 4", "Jalan Dewi Sartika 5", "SD Harapan Prestasi",
+                   "BSI Dewi Sartika", "SMAN 14", "Jalan Pahlawan Kalibata 1", "Jalan Pahlawan Kalibata, 5", "Plaza Kalibata", "Kalibata City 1", "Kalibata City 2", "Danau TMP Kalibata", "Jalan Pahlawan Kalibata 4", "Jalan Pahlawan Kalibata 3", "Pertani", "Jalan Raya Pasar Minggu 8", "Pomad 1", "Nifarro Park", "Jalan Raya Pasar Minggu 10", "Seberang Haji Samali", "Jalan Batu I", "YBK - Brimob Pejaten Barat 1",
+                   "Jalan Warga", "Masjid AT Taqwa 1", "Jalan Raya Pasar Minggu, 2", "Jalan Raya Pasar Minggu 16", "Jalan Raya Pasar Minggu, 13", "Stasiun Pasar Minggu", "Jalan Raya Pasar Minggu, No 7", "Seberang Stasiun Pasar Minggu")
+        )
+        Route("M17",
+            37,
+            "Rute 1",
+            55,
+            listOf("Terminal Pasar Minggu", "GANG Bima Jaya", "Kantor Lurah Pasar Minggu", "Direktorat Jenderal Hortikultura", "Litbang Pertanian", "Tti Center", "Jalan Ragunan Raya, 5", "Wisma Gapensi", "Masjid AL Ikhlash Jatipadang", "Jalan H. Abdullah", "Jalan Masjid Ar Ridwan", "Jalan Menara", "GANG Haji Salihan Jati Padang", "Graha Simatupang", "Jalan Mujair Raya", "Jalan Gabus Raya", "Baung",
+                   "Phe Tower Kebagusan", "Plaza Oleos", "Tb. Simatupang 8b", "Seberang SDN Ragunan 14", "Seberang KUA Pasar Minggu", "Seberang GOR Ragunan", "Seberang SDN Kebagusan 01", "Jalan Kebagusan III", "Jalan Kebagusan IV", "Simpang Kelapa Peon", "Puskesmas Pasar Minggu", "Seberang TAMAN Spatodhea", "GANG Langgar III", "Jalan Kelapa Hijau", "Sekolah AL Marzuqiyah", "Masjid Jami AL Khoiriyah",
+                   "Seberang Telkom Jalan Kelapa 3", "Pasar Jaya Lenteng Agung 2")
+        )
+        Route("M17",
+            38,
+            "Rute 2",
+            48,
+            listOf("Pasar Lenteng Agung", "GANG Rukun", "Pertigaan Kelapa Tiga", "Telkom Jalan Kelapa 3", "Seberang Masjid Jami AL Khoiriyah", "Seberang Sekolah AL Marzuqiyah", "Masjid Jami AL Wiqoyah", "Jalan Sutra", "TAMAN Spatodhea", "Masjid Darussalam", "Seberang Puskesmas Pasar Minggu", "Jalan Sagu", "Mesjid Nurul Huda Kebagusan", "Seberang Jalan Kebagusan III", "SMPN - SMAN Olahraga Ragunan",
+                   "GOR Ragunan", "KUA Pasar Minggu", "SDN Ragunan 14", "Kebagusan Raya", "Kementan", "Kementerian Pertanian 2", "Jatipadang Raya", "Jalan Jatipadang VI", "Jalan A. Wahid", "Jalan H. Jaani", "Seberang SD Pelita Jati Padang", "Koperasi Jatipadang", "Jalan Damarsari", "Jalan Sebet", "SMAN 28", "Kelurahan Jati Padang", "Kecamatan Pasar Minggu", "Sekolah Suluh", "GANG Mawar",
+                   "Ramayana Pasar Minggu", "Jalan Ragunan Raya, 15", "Terminal Pasar Minggu")
+        )
+        Route("M17A",
+            39,
+            "Rute 1",
+            47,
+            listOf("Terminal Pasar Minggu", "GANG Bima Jaya", "Kantor Lurah Pasar Minggu", "Direktorat Jenderal Hortikultura", "Litbang Pertanian", "Tti Center", "Masjid AL Ikhlash Jatipadang", "Jalan H. Abdullah", "Jalan Menara", "Graha Simatupang", "Jalan Mujair Raya", "Jalan Gabus Raya", "Baung", "Phe Tower Kebagusan", "Plaza Oleos", "Tb. Simatupang 8b", "Seberang SDN Ragunan 14",
+                   "Seberang KUA Pasar Minggu", "Seberang GOR Ragunan", "Seberang SDN Kebagusan 01", "Jalan Kebagusan III", "Jalan Kebagusan IV", "Simpang Kelapa Peon", "Puskesmas Pasar Minggu", "Seberang TAMAN Spatodhea", "GANG Langgar III", "Jalan Kelapa Hijau")
+        )
+        Route("M17A",
+            40,
+            "Rute 2",
+            39,
+            listOf("Masjid Jami AL Wiqoyah", "Jalan Sutra", "TAMAN Spatodhea", "Masjid Darussalam", "Seberang Puskesmas Pasar Minggu", "Jalan Sagu", "Mesjid Nurul Huda Kebagusan", "Seberang Jalan Kebagusan III", "SMPN - SMAN Olahraga Ragunan", "KUA Pasar Minggu", "Kebagusan Raya", "Kementan", "Kementerian Pertanian 2", "Jatipadang Raya", "Jalan Menara", "Jalan Jatipadang VI", "Jalan A. Wahid",
+                   "Seberang SD Pelita Jati Padang", "Koperasi Jatipadang", "Jalan Sebet", "SMAN 28", "Kelurahan Jati Padang", "Sekolah Suluh", "GANG Mawar", "Ramayana Pasar Minggu", "Jalan Ragunan Raya, 15a", "Terminal Pasar Minggu")
+        )
+        Route("M18",
+            41,
+            "Rute 1",
+            55,
+            listOf("Lapangan PONDOK Gede", "Jatiwaringin 67", "Jalan Sejahtera", "Jalan Jaya Abadi", "Jatiwaringin 04", "Jalan Bina Lontar 1", "Jatiwaringin", "Jati Waringin Raya 68", "Jalan Jatiwaringin Raya, 22", "Cempaka Baru 249", "Jalan Pangkalan Jati VI", "Perumahan TNI AU 2", "Pangkalan Jati IV", "Naga Jatiwaringin", "Pospol Makasar", "Seberang SMP Putra I", "Seberang Komplek Pusbinal",
+                   "Universitas Borobudur 4", "Jalan Inspeksi Tarum Barat 14", "Jalan Inspeksi Saluran Kali Malang, 39-41", "Jalan Inspeksi Tarum Barat 12", "Graha Inti 2", "Jalan Inspeksi Tarum Barat 7", "Jalan Inspeksi Saluran Kali Malang, 27 A", "Jalan Inspeksi Saluran Kali Malang, 1", "Lion Center", "Brantas Abipraya", "Penas Kalimalang 1", "Sutoyo 9", "Sutoyo 10", "Otista 3 04",
+                   "Masjid Jami Attaubah 2", "Bidara Cina 2", "Klinik Otista", "Terminal Kampung Melayu 3", "Terminal Kampung Melayu")
+        )
+        Route("M18",
+            42,
+            "Rute 2",
+            63,
+            listOf("Terminal Kampung Melayu", "Sekolah Cahaya Sakti Otista I", "Jalan Pedati Raya", "Jalan Haji Taslim", "Bidara Cina 1", "Astrido Otista", "Otista 3", "Seberang Jalan Otista III Komplek III", "Cipinang Kebon Nanas 1", "Cipinang Kebon Nanas 2", "Sutoyo 10b", "Penas", "Simpang Kalimalang DI Panjaitan", "Pasar Ciplak", "Kkdm", "Jalan Panca Warga IV", "Jalan Kesadaran Kali Malang",
+                   "Jalan Cipinang Indah I", "Masjid Jami Assyakirin Kalimalang", "Jalan Cipinang Bali III", "Graha Inti 1", "SMA - SMK Pusaka 1 Jakarta", "Jalan PONDOK Bambu Batas", "Jalan Inspeksi Saluran Kali Malang 14", "Universitas Borobudur 3", "Kalimalang", "TAMAN Pangkalan Jati Kalimalang", "Kalimalang Pangkalan Jati", "Pangkalan Jati", "Seulawah 63", "Perumahan TNI AU 1",
+                   "Seberang Jalan Pangkalan Jati VI", "Gerbang Tol PONDOK Gede", "UIA Kampus 2", "Sekolah Yadika Jatiwaringin", "Jalan Rawa Indah", "Jalan Setia 1", "Sekolah Fadlurrahman", "Bumi Jatiwaringin", "Jalan Gamprit Raya", "Jati Waringin 176", "Lapangan PONDOK Gede", "Seberang Koramil PONDOK Gede", "Pasar PONDOK Gede", "Simpang Raya PONDOK Gede 1", "Masjid Nurul Ihsan 20a",
+                   "Lapangan PONDOK Gede")
+        )
 }
 }
