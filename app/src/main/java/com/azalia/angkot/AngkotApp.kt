@@ -19,12 +19,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.navArgument
 import com.azalia.angkot.ui.navigation.NavigationItem
 import com.azalia.angkot.ui.navigation.Screen
+import com.azalia.angkot.ui.screen.detail_angkot.DetailAngkotScreen
 import com.azalia.angkot.ui.screen.home.HomeScreen
 import com.azalia.angkot.ui.screen.list.ListScreen
 import com.azalia.angkot.ui.screen.map.MapScreen
@@ -60,6 +63,13 @@ fun AngkotApp(
             }
             composable(Screen.List.route) {
                 ListScreen()
+            }
+            composable(
+                route = Screen.DetailAngkot.route,
+                arguments = listOf(navArgument("id") {type = NavType.IntType}),
+                ) {
+                val id = it.arguments?.getInt("id") ?: -1
+                DetailAngkotScreen(angkotId = id, navigateBack = {navController.navigateUp()})
             }
         }
     }
