@@ -1,4 +1,4 @@
-package com.azalia.angkot.model
+package com.azalia.angkot.domain.model
 
 data class Angkot (
     val id: String,
@@ -7,5 +7,6 @@ data class Angkot (
     val price: String,
     val interval: Int,
     val cityId: Int,
+    val image: Int,
 )
 

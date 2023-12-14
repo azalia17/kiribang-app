@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import com.google.maps.android.compose.Marker
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -21,8 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.azalia.angkot.ui.theme.AngkotTheme
 import com.azalia.angkot.ui.theme.Size60
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapUiSettings
+import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.MarkerState
 
 @Composable
 fun MapScreen(viewModel: MapViewModel = androidx.lifecycle.viewmodel.compose.viewModel(), modifier: Modifier) {
@@ -53,7 +58,59 @@ fun MapScreen(viewModel: MapViewModel = androidx.lifecycle.viewmodel.compose.vie
             modifier = modifier.fillMaxSize(),
             properties = viewModel.state.properties,
             uiSettings = uiSettings
-        )
+        ) {
+            Marker(
+                state = MarkerState(
+                    position = LatLng(-6.175110, 106.865036)
+                ),
+                title = "You are here",
+                icon = BitmapDescriptorFactory.defaultMarker(30f)
+
+
+            )
+            Marker(
+                state = MarkerState(
+                    position = LatLng(-6.185110, 106.865036)
+                ),
+                title = "Terminal Kampung Melayu"
+            )
+            Marker(
+                state = MarkerState(
+                    position = LatLng(-6.19, 106.87)
+                ),
+                title = "Terminal Kampung Melayu"
+            )
+            Marker(
+                state = MarkerState(
+                    position = LatLng(-6.19, 106.9)
+                ),
+                title = "Terminal Kampung Melayu"
+            )
+            Marker(
+                state = MarkerState(
+                    position = LatLng(-6.19, 106.67)
+                ),
+                title = "Terminal Kampung Melayu"
+            )
+            Marker(
+                state = MarkerState(
+                    position = LatLng(-6.19, 106.97)
+                ),
+                title = "Terminal Kampung Melayu"
+            )
+//            Marker(
+//                state = MarkerState(
+//                    position = LatLng()
+//                )
+////                position =
+//            )
+
+//            viewModel.state.angkotspots.forEach { stops ->
+//                Marker(
+//                    position = LatLng()
+//                )
+//            }
+        }
     }
 }
 

@@ -5,6 +5,8 @@ sealed class Screen (val route: String) {
     object List : Screen("list")
     object Map : Screen("map")
     object DetailAngkot : Screen("list/{id}") {
-        fun createRoute(id: Int) = "list/$id"
+        fun createRoute(id: String) = "list/$id"
     }
+
+    object DestinationMap : Screen("destinationMap")
 }

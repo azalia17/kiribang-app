@@ -10,11 +10,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.azalia.angkot.ui.ViewModelFactory
 import com.azalia.angkot.ui.theme.AngkotTheme
+import com.google.android.gms.location.GeofencingClient
+import com.google.android.gms.location.LocationServices
 
 class MainActivity : ComponentActivity() {
+    private lateinit var geofencingClient: GeofencingClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        geofencingClient = LocationServices.getGeofencingClient(this)
+
         setContent {
             AngkotTheme {
                 // A surface container using the 'background' color from the theme

@@ -1,4 +1,4 @@
-package com.azalia.angkot.model
+package com.azalia.angkot.domain.model
 
 object CityData {
     val cities = listOf<City>(

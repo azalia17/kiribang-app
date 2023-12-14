@@ -1,4 +1,4 @@
-package com.azalia.angkot.model
+package com.azalia.angkot.domain.model
 
 data class Route (
     val angkotId: String,

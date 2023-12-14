@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun DetailAngkotScreen(
-    angkotId: Int,
+    angkotId: String,
     navigateBack: () -> Unit,
 ) {
 

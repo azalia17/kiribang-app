@@ -2,6 +2,7 @@ package com.azalia.angkot.ui.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -54,6 +56,7 @@ import com.azalia.angkot.ui.theme.Size8
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.ui.res.stringResource
 import com.azalia.angkot.ui.theme.Size52
+import com.azalia.angkot.ui.theme.Size60
 import com.azalia.angkot.ui.theme.Size88
 
 
@@ -63,8 +66,9 @@ fun HomeScreen(
 //    viewModel: HomeViewModel = viewModel(
 ////        factory = ViewModelFactory(Injection.provideRepository())
 //    ),
+    navigateToDestinationMap: () -> Unit,
     ) {
-    HomeContent()
+    HomeContent(navigateToDestinationMap = navigateToDestinationMap)
 //    val query by viewModel.query
 }
 
@@ -72,6 +76,7 @@ fun HomeScreen(
 @Composable
 fun HomeContent(
     modifier: Modifier = Modifier,
+    navigateToDestinationMap: () -> Unit,
 ) {
     Box(
         modifier = modifier
@@ -82,91 +87,130 @@ fun HomeContent(
             modifier = modifier
                 .verticalScroll(rememberScrollState())
         ) {
-            Text(
-                text = "Selamat Siang User!",
+            Box(
                 modifier = modifier
-                    .padding(top = Size20, bottom = Size20, start = Size20, end = Size20),
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontSize = 20.sp,
-                    letterSpacing = 4.sp
-                )
-            )
-            Text(
-                text = "Mau diingatkan dimana?",
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 24.sp,
-                    letterSpacing = 2.sp
-                ),
-                modifier = modifier
-                    .padding(start = Size20, end = Size20)
-            )
-            Spacer(modifier = modifier.height(Size8))
-            Row(
-                modifier = modifier
-                    .padding(start = Size20, end = Size20)
+                    .height(Size60)
                     .fillMaxWidth()
-                    .height(Size56)
+//                    .clickable { navigateBack() }
             ) {
-                Box(
-                    modifier = modifier
-                        .clip(RoundedCornerShape(Size16))
-                        .border(
-                            width = 2.dp,
-                            color = colorResource(id = R.color.brown_1),
-                            shape = RoundedCornerShape(Size16)
-                        )
-                        .background(colorResource(id = R.color.light_brown))
-                        //                    .fillMaxWidth()
-                        .weight(weight = .7f)
-                        .fillMaxHeight()
+//            Row {
+//                Icon(
+//                    imageVector = Icons.Rounded.ArrowBack,
+//                    contentDescription = "Back button",
+//                    modifier = modifier.clickable { navigateBack() })
+//                Text(
+//                    text = "Buat Alarm",
+//                    style = MaterialTheme.typography.bodySmall.copy(
+//                        fontWeight = FontWeight.Bold,
+//                        textAlign = TextAlign.Center,
+//                        fontSize = 16.sp
+//                    ),
+////                    modifier = modifier.align(Alignment.Center)
+//                )
+//            }
+                Text(
+                    text = "Buat Alarm",
+                    style = MaterialTheme.typography.bodySmall.copy(
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        fontSize = 16.sp
+                    ),
+                    modifier = modifier.align(Alignment.Center)
+                )
+                Divider(
+                    thickness = 1.dp,
+                    color = Color.Gray,
+                    modifier = modifier.align(Alignment.BottomCenter)
+                )}
 
-                ) {
-                    Text(
-                        text = "Pilih Lokasi",
-                        style = MaterialTheme.typography.labelMedium.copy(
-                            textAlign = TextAlign.Center,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Light
-                        ),
-                        modifier = modifier
-                            .padding(Size8)
-                            //                        .fillMaxWidth()
-                            //                        .fillMaxHeight()
-                            .align(Alignment.Center)
-                    )
-                }
-                Spacer(modifier = modifier.width(Size8))
-                Box(
-                    modifier = modifier
-                        .clip(RoundedCornerShape(Size56))
-                        .background(colorResource(id = R.color.brown_1))
-                        .height(Size56)
-                        .width(Size56)
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.alarm),
-                        contentDescription = "This is button add alarm",
-                        tint = Color.White,
-                        modifier = modifier
-                            .height(Size24)
-                            .width(Size24)
-                            .align(Alignment.Center)
-                    )
-                }
-            }
-            Spacer(modifier = modifier.height(Size36))
-            Text(
-                text = "Tanya",
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 24.sp,
-                    letterSpacing = 2.sp
-                ),
-                modifier = modifier
-                    .padding(start = Size20, end = Size20)
-            )
-        }
+//            Text(
+//                text = "Selamat Siang User!",
+//                modifier = modifier
+//                    .padding(top = Size20, bottom = Size20, start = Size20, end = Size20),
+//                style = MaterialTheme.typography.bodyLarge.copy(
+//                    fontSize = 20.sp,
+//                    letterSpacing = 4.sp
+//                )
+//            )
+//            Text(
+//                text = "Mau diingatkan dimana?",
+//                style = MaterialTheme.typography.bodyLarge.copy(
+//                    fontWeight = FontWeight.Medium,
+//                    fontSize = 24.sp,
+//                    letterSpacing = 2.sp
+//                ),
+//                modifier = modifier
+//                    .padding(start = Size20, end = Size20)
+//            )
+//            Spacer(modifier = modifier.height(Size8))
+//            Row(
+//                modifier = modifier
+//                    .padding(start = Size20, end = Size20)
+//                    .fillMaxWidth()
+//                    .height(Size56)
+//                    .clickable {
+//                        navigateToDestinationMap()
+//                    }
+//            ) {
+//                Box(
+//                    modifier = modifier
+//                        .clip(RoundedCornerShape(Size16))
+//                        .border(
+//                            width = 2.dp,
+//                            color = colorResource(id = R.color.brown_1),
+//                            shape = RoundedCornerShape(Size16)
+//                        )
+//                        .background(colorResource(id = R.color.light_brown))
+//                        //                    .fillMaxWidth()
+//                        .weight(weight = .7f)
+//                        .fillMaxHeight()
+//
+//                ) {
+//                    Text(
+//                        text = "Pilih Lokasi",
+//                        style = MaterialTheme.typography.labelMedium.copy(
+//                            textAlign = TextAlign.Center,
+//                            fontSize = 16.sp,
+//                            fontWeight = FontWeight.Light
+//                        ),
+//                        modifier = modifier
+//                            .padding(Size8)
+//                            //                        .fillMaxWidth()
+//                            //                        .fillMaxHeight()
+//                            .align(Alignment.Center)
+//                    )
+//                }
+//                Spacer(modifier = modifier.width(Size8))
+//                Box(
+//                    modifier = modifier
+//                        .clip(RoundedCornerShape(Size56))
+//                        .background(colorResource(id = R.color.brown_1))
+//                        .height(Size56)
+//                        .width(Size56)
+//                ) {
+//                    Icon(
+//                        painter = painterResource(id = R.drawable.alarm),
+//                        contentDescription = "This is button add alarm",
+//                        tint = Color.White,
+//                        modifier = modifier
+//                            .height(Size24)
+//                            .width(Size24)
+//                            .align(Alignment.Center)
+//                    )
+//                }
+//            }
+//            Spacer(modifier = modifier.height(Size36))
+//            Text(
+//                text = "Tanya",
+//                style = MaterialTheme.typography.bodyLarge.copy(
+//                    fontWeight = FontWeight.Medium,
+//                    fontSize = 24.sp,
+//                    letterSpacing = 2.sp
+//                ),
+//                modifier = modifier
+//                    .padding(start = Size20, end = Size20)
+//            )
+//        }
         Box(
             modifier = modifier
                 .clip(RoundedCornerShape(topStart = Size16, topEnd = Size16))
@@ -177,9 +221,9 @@ fun HomeContent(
                 )
                 .background(colorResource(id = R.color.light_brown))
                 .padding(top = Size8)
-                .align(Alignment.BottomCenter)
-//                .fillMaxSize()
-                .height(450.dp)
+//                .align(Alignment.BottomCenter)
+                .fillMaxSize()
+//                .height(450.dp)
 //                .weight(.8f)
         ) {
 //            Spacer(modifier = )
@@ -223,12 +267,12 @@ fun HomeContent(
             }
         }
     }
-}
+}}
 
-@Preview(showBackground = true, device = Devices.PIXEL_4)
-@Composable
-fun HomeContentPreview() {
-    AngkotTheme {
-        HomeContent()
-    }
-}
+//@Preview(showBackground = true, device = Devices.PIXEL_4)
+//@Composable
+//fun HomeContentPreview() {
+//    AngkotTheme {
+////        HomeContent()
+//    }
+//}

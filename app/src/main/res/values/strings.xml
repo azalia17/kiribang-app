@@ -3,7 +3,9 @@
     <string name="home">Home</string>
     <string name="list">List</string>
     <string name="maps">Maps</string>
+    <string name="chat">Chat</string>
     <string name="this_is_home">This is Home Screen</string>
     <string name="this_is_list">This is List Screen</string>
     <string name="this_is_maps">This is Maps Screen</string>
+    <string name="this_is_chat">This is Chat Screen</string>
 </resources>

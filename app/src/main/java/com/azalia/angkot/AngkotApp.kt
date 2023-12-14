@@ -1,10 +1,12 @@
 package com.azalia.angkot
 
+import android.app.Application
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -27,6 +29,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.azalia.angkot.ui.navigation.NavigationItem
 import com.azalia.angkot.ui.navigation.Screen
+import com.azalia.angkot.ui.screen.destination_map.DestinationMap
 import com.azalia.angkot.ui.screen.detail_angkot.DetailAngkotScreen
 import com.azalia.angkot.ui.screen.home.HomeScreen
 import com.azalia.angkot.ui.screen.list.ListScreen
@@ -44,9 +47,10 @@ fun AngkotApp(
 
     Scaffold(
         bottomBar = {
-                    BottomBar(navController = navController)
-//            if (currentRoute != Scree)
-//            BottomAppBar(navController = navController),
+//            if (currentRoute  != Screen.DetailAngkot.route && currentRoute  != Screen.DestinationMap.route) {
+                if (currentRoute  != Screen.DetailAngkot.route) {
+                BottomBar(navController = navController)
+            }
         },
         modifier = modifier
     ) { innerPadding ->
@@ -56,20 +60,34 @@ fun AngkotApp(
             modifier = modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen(modifier = modifier)
+                HomeScreen(
+                    modifier = modifier,
+                    navigateToDestinationMap = {navController.navigate(Screen.DestinationMap.route)}
+                )
             }
             composable(Screen.Map.route) {
                 MapScreen(modifier = modifier)
             }
             composable(Screen.List.route) {
-                ListScreen()
+                ListScreen(
+                    modifier = modifier,
+//                    application = application,
+                    navigateToDetail = { angkotId ->
+                        navController.navigate(Screen.DetailAngkot.createRoute(angkotId))
+                    }
+                )
             }
             composable(
                 route = Screen.DetailAngkot.route,
-                arguments = listOf(navArgument("id") {type = NavType.IntType}),
+                arguments = listOf(navArgument("id") {type = NavType.StringType}),
                 ) {
-                val id = it.arguments?.getInt("id") ?: -1
+                val id = it.arguments?.getString("id") ?: ""
                 DetailAngkotScreen(angkotId = id, navigateBack = {navController.navigateUp()})
+            }
+            composable(Screen.DestinationMap.route) {
+                DestinationMap(modifier = modifier, navigateBack = {navController.navigateUp()},
+//                    application = application,
+                    )
             }
         }
     }
@@ -87,8 +105,14 @@ fun BottomBar(
             NavigationItem(
                 title = stringResource(id = R.string.home),
                 icon = Icons.Default.Home,
-                screen = Screen.Home,
+                screen = Screen.DestinationMap,
                 contentDescription = stringResource(id = R.string.this_is_home)
+            ),
+            NavigationItem(
+                title = stringResource(id = R.string.chat),
+                icon = Icons.Default.Send,
+                screen = Screen.Home,
+                contentDescription = stringResource(id = R.string.this_is_chat)
             ),
             NavigationItem(
                 title = stringResource(id = R.string.maps),
@@ -128,10 +152,10 @@ fun BottomBar(
     }
 }
 
-@Preview
-@Composable
-fun AngkotAppPreview() {
-    AngkotTheme {
-        AngkotApp()
-    }
-}
+//@Preview
+//@Composable
+//fun AngkotAppPreview() {
+//    AngkotTheme {
+//        AngkotApp()
+//    }
+//}

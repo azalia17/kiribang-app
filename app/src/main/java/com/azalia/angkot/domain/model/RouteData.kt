@@ -1,4 +1,4 @@
-package com.azalia.angkot.model
+package com.azalia.angkot.domain.model
 
 object RouteData {
     val Routes = listOf<Route>(
@@ -313,8 +313,8 @@ object RouteData {
             listOf("Terminal Tanjung Priok", "Jalan R. E. Martadinata 1", "Jalan R. E. Martadinata 2", "Jalan R. E. Martadinata 3", "Jalan R. E. Martadinata 4", "Jalan R. E. Martadinata 5", "Jalan R. E. Martadinata 6", "Jalan Bak Air I", "TAMAN Asem Ppsu Tanjung Priok", "Jalan R. E. Martadinata 9", "Jalan R. E. Martadinata 10", "Seberang Jalan Industri Tanjung Priok",
                    "Sekolah Yanindo Jakarta", "Jalan R. E. Martadinata 13", "Jalan R. E. Martadinata 14", "Jalan R. E. Martadinata 15", "Jalan R. E. Martadinata 16", "Jalan R. E. Martadinata 17", "Jalan R. E. Martadinata 18", "Jalan R. E. Martadinata 19", "Jalan R. E. Martadinata 20", "Jalan R. E. Martadinata 21", "Jalan R. E. Martadinata 22", "Jalan R. E. Martadinata 23",
                    "Jalan R. E. Martadinata 24", "Jalan RS Paru-Paru", "Jalan R. E. Martadinata 26", "Jalan R. E. Martadinata 27", "Jalan R. E. Martadinata 28", "Jalan R. E. Martadinata 29", "Jalan R. E. Martadinata 30", "Jalan R. E. Martadinata 31", "Stasiun Ancol", "Jalan R. E. Martadinata 33", "Jalan R. E. Martadinata 34", "Jalan R. E. Martadinata 35", "Jalan R. E. Martadinata 36",
-                   "Jalan R. E. Martadinata 37", "Jalan R. E. Martadinata 38", "Jalan Budi Mulia", "Jalan R. E. Martadinata 40", "Jalan R. E. Martadinata 41", "Jalan R. E. Martadinata 42", "Jalan R. E. Martadinata 43", "Jalan R. E. Martadinata 44", "Executive Hotel", "Jalan Gunung Sahari Raya 1", "Jalan Gunung Sahari Raya 2", "Jalan Gunung Sahari Raya 3", "Pademangan 1',
-                   "Jalan Gunung Sahari Raya 6", "Jalan Ampera VI Gunung Sahari", "Gunung Sahari 3", "Gunung Sahari 3c", "Jalan Gunung Sahari Raya 9", "Jalan Gunung Sahari Raya 10", "Jalan Gunung Sahari Raya 11", "Gunung Sahari Mangga Dua Barat", "Mangga Dua Square", "Jalan Gunung Sahari Raya 10b", "Gunung Sahari Mangga Dua 1", "Jalan Gunung Sahari Raya 8b", "Jalan Gunung Sahari Raya 7b"
+                   "Jalan R. E. Martadinata 37", "Jalan R. E. Martadinata 38", "Jalan Budi Mulia", "Jalan R. E. Martadinata 40", "Jalan R. E. Martadinata 41", "Jalan R. E. Martadinata 42", "Jalan R. E. Martadinata 43", "Jalan R. E. Martadinata 44", "Executive Hotel", "Jalan Gunung Sahari Raya 1", "Jalan Gunung Sahari Raya 2", "Jalan Gunung Sahari Raya 3", "Pademangan 1",
+                   "Jalan Gunung Sahari Raya 6", "Jalan Ampera VI Gunung Sahari", "Gunung Sahari 3", "Gunung Sahari 3c", "Jalan Gunung Sahari Raya 9", "Jalan Gunung Sahari Raya 10", "Jalan Gunung Sahari Raya 11", "Gunung Sahari Mangga Dua Barat", "Mangga Dua Square", "Jalan Gunung Sahari Raya 10b", "Gunung Sahari Mangga Dua 1", "Jalan Gunung Sahari Raya 8b", "Jalan Gunung Sahari Raya 7b",
                    "Harco Mangga Dua", "Pasar Tekstil Mangga Dua 2", "Ruko Mangga Dua", "Wisma Eka Jiwa", "Jalan Mangga Dua 3", "Pangeran Jayakarta 1", "Jalan Jembatan Batu 1", "Kota", "Jalan Jembatan Batu 3", "Jalan Pintu Besar Utara 1", "Jalan Kali Besar Barat 1", "Kali Besar Barat 1", "Jalan Cengkeh 2b", "Jalan Kunir 2", "Hotel 1001", "Kecamatan TAMAN Sari", "BNI 46", "Stasiun Jakarta Kota")
         ),
         Route("M15A",
