@@ -116,6 +116,7 @@ fun ListContent(
                 Row(
                     modifier = modifier
                         .padding(start = Size8, end = Size20)
+                        .fillMaxWidth()
                         .clickable {
                             navigateToDetail(angkot.id)
                         }

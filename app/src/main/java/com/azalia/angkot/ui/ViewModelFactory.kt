@@ -9,6 +9,7 @@ import com.azalia.angkot.data.AngkotSpotsDao
 import com.azalia.angkot.di.Injection
 import com.azalia.angkot.domain.repository.AngkotRepository
 import com.azalia.angkot.ui.screen.destination_map.DestinationMapViewModel
+import com.azalia.angkot.ui.screen.detail_angkot.DetailAngkotViewModel
 import com.azalia.angkot.ui.screen.home.HomeViewModel
 import com.azalia.angkot.ui.screen.list.ListViewModel
 import com.azalia.angkot.ui.screen.map.MapViewModel
@@ -24,6 +25,8 @@ class ViewModelFactory(private val repository: AngkotRepository) : ViewModelProv
             return MapViewModel() as T
         } else if (modelClass.isAssignableFrom(DestinationMapViewModel::class.java)) {
             return DestinationMapViewModel(repository) as T
+        }else if (modelClass.isAssignableFrom(DetailAngkotViewModel::class.java)) {
+            return DetailAngkotViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
