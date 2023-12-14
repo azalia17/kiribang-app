@@ -63,6 +63,7 @@ fun DetailAngkotScreen(
             is UiState.Error -> {
                 Text(text = it.errorMessage)
             }
+            else -> {}
         }
     }
 }

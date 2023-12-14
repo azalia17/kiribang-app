@@ -5,7 +5,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import com.google.maps.android.compose.Marker
@@ -23,11 +29,15 @@ import androidx.compose.ui.unit.sp
 import com.azalia.angkot.ui.theme.AngkotTheme
 import com.azalia.angkot.ui.theme.Size60
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.CameraPositionState
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
+import com.google.maps.android.compose.rememberCameraPositionState
+
 
 @Composable
 fun MapScreen(viewModel: MapViewModel = androidx.lifecycle.viewmodel.compose.viewModel(), modifier: Modifier) {
@@ -35,6 +45,7 @@ fun MapScreen(viewModel: MapViewModel = androidx.lifecycle.viewmodel.compose.vie
     val uiSettings = remember {
         MapUiSettings(zoomControlsEnabled = true)
     }
+
     Column {
         Box(
             modifier = modifier
@@ -54,10 +65,19 @@ fun MapScreen(viewModel: MapViewModel = androidx.lifecycle.viewmodel.compose.vie
             )
             Divider(thickness = 1.dp, color = Color.Gray, modifier = modifier.align(Alignment.BottomCenter))
         }
-        GoogleMap (
+        GoogleMap(
             modifier = modifier.fillMaxSize(),
             properties = viewModel.state.properties,
-            uiSettings = uiSettings
+            uiSettings = uiSettings,
+//            cameraPositionState = CameraPositionState(
+//                CameraPosition(
+//                    target = LatLng(-6.175110, 106.865036),
+//                    zoom = 15f
+//                )
+//            )
+            cameraPositionState = rememberCameraPositionState {
+                position = CameraPosition.fromLatLngZoom(LatLng(-6.175110, 106.865036), 11f)
+            }
         ) {
             Marker(
                 state = MarkerState(

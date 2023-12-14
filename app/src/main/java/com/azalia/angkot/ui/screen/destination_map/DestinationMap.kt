@@ -15,14 +15,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -66,19 +70,17 @@ import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
+import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun DestinationMap(
-//    application: Application,
     viewModel: DestinationMapViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
-//        factory = ViewModelFactory(Injection.provideRepository(context = Context),)
-//        factory = ViewModelFactory.getInstance(application)
-//        factory = ViewModelFactory(Injection.provideRepository(application))
         factory = ViewModelFactory(Injection.provideRepository(context = LocalContext.current))
     ),
     modifier: Modifier,
     navigateBack: () -> Unit,
 ) {
+    var markers by remember { mutableStateOf(emptyList<LatLng>()) }
     val uiSettings = remember {
         MapUiSettings(zoomControlsEnabled = true)
     }
@@ -94,21 +96,19 @@ fun DestinationMap(
                 .fillMaxWidth()
                 .clickable { navigateBack() }
         ) {
-//            Row {
-//                Icon(
-//                    imageVector = Icons.Rounded.ArrowBack,
-//                    contentDescription = "Back button",
-//                    modifier = modifier.clickable { navigateBack() })
-//                Text(
-//                    text = "Buat Alarm",
-//                    style = MaterialTheme.typography.bodySmall.copy(
-//                        fontWeight = FontWeight.Bold,
-//                        textAlign = TextAlign.Center,
-//                        fontSize = 16.sp
-//                    ),
-////                    modifier = modifier.align(Alignment.Center)
-//                )
-//            }
+            IconButton(
+                onClick = {  },
+                modifier = modifier
+                    .padding(16.dp)
+                    .size(40.dp)
+                    .align(alignment = Alignment.CenterEnd)
+            ){
+                Icon(
+                    imageVector = Icons.Default.Notifications,
+                    contentDescription = "back",
+                    modifier = modifier,
+                )
+            }
             Text(
                 text = "Buat Alarm",
                 style = MaterialTheme.typography.bodySmall.copy(
@@ -131,7 +131,12 @@ fun DestinationMap(
 //            cameraPositionState = CameraPositionState(position = ),
             onMapLongClick = {
 //                viewModel.onEvent(DestinationMapEvent.onMapLongClick(it))
+                markers = markers + listOf(it)
+            },
+            cameraPositionState = rememberCameraPositionState {
+                position = CameraPosition.fromLatLngZoom(LatLng(-6.175110, 106.865036), 15f)
             }
+
         ) {
             Marker(
                 state = MarkerState(
@@ -140,6 +145,14 @@ fun DestinationMap(
                 title = "You are here",
 //                icon = BitmapDescriptorFactory.defaultMarker(200f)
             )
+            markers.forEachIndexed { index, markerPosition ->
+                Marker(
+                    state = MarkerState(position = markerPosition),
+                    title = "Alarm akan menyala saat kamu memasuki area ini",
+                    icon = BitmapDescriptorFactory.defaultMarker(30f),
+                    snippet = "Setelah pin lokasi, klik icon bel di atas"
+                )
+            }
 //            Marker(
 //                state = MarkerState(
 //                    position = LatLng(-6.18, 106.865036)

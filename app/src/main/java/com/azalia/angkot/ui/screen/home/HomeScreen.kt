@@ -122,6 +122,47 @@ fun HomeContent(
                     color = Color.Gray,
                     modifier = modifier.align(Alignment.BottomCenter)
                 )}
+            Box (modifier = modifier
+                .fillMaxHeight()
+                .fillMaxWidth()) {
+                Column(modifier = modifier.fillMaxHeight()) {
+
+                }
+                OutlinedTextField(
+                    value = "",
+                    onValueChange = {},
+                    trailingIcon = { // Add the trailing icon here
+                        val icon: @Composable () -> Unit = {
+                            IconButton(
+                                onClick = {},
+                                modifier = modifier
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Send,
+                                    tint = colorResource(id = R.color.brown_1),
+                                    contentDescription = "This is button send"
+                                )
+                            }
+                        }
+                        icon()
+                    },
+                    placeholder = {
+                        Text(
+                            text = "Ketik pertanyaanmu",
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = Color.Gray
+                            )
+                        )
+                    },
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .height(Size52)
+                        .align(alignment = Alignment.BottomCenter)
+//                            .padding(Size20)
+                )
+            }
+
+
 
 //            Text(
 //                text = "Selamat Siang User!",
@@ -211,63 +252,63 @@ fun HomeContent(
 //                    .padding(start = Size20, end = Size20)
 //            )
 //        }
-        Box(
-            modifier = modifier
-                .clip(RoundedCornerShape(topStart = Size16, topEnd = Size16))
-                .border(
-                    width = 2.dp,
-                    color = colorResource(id = R.color.brown_1),
-                    shape = RoundedCornerShape(topStart = Size16, topEnd = Size16)
-                )
-                .background(colorResource(id = R.color.light_brown))
-                .padding(top = Size8)
-//                .align(Alignment.BottomCenter)
-                .fillMaxSize()
-//                .height(450.dp)
-//                .weight(.8f)
-        ) {
-//            Spacer(modifier = )
-            Column(
-                modifier = modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(Size20)
-            ) {
-//                Spacer(modifier = modifier.weight(.6f))
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
-                    trailingIcon = { // Add the trailing icon here
-                        val icon: @Composable () -> Unit = {
-                            IconButton(
-                                onClick = {},
-                                modifier = modifier
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Send,
-                                    tint = colorResource(id = R.color.brown_1),
-                                    contentDescription = "This is button send"
-                                )
-                            }
-                        }
-                        icon()
-                    },
-                    placeholder = {
-                        Text(
-                            text = "Ketik pertanyaanmu",
-                            style = MaterialTheme.typography.bodySmall.copy(
-                                color = Color.Gray
-                            )
-                        )
-                    },
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .height(Size52)
-//                            .padding(Size20)
-                )
+//        Box(
+//            modifier = modifier
+//                .clip(RoundedCornerShape(topStart = Size16, topEnd = Size16))
+//                .border(
+//                    width = 2.dp,
+//                    color = colorResource(id = R.color.brown_1),
+//                    shape = RoundedCornerShape(topStart = Size16, topEnd = Size16)
+//                )
+//                .background(colorResource(id = R.color.light_brown))
+//                .padding(top = Size8)
+////                .align(Alignment.BottomCenter)
+//                .fillMaxSize()
+////                .height(450.dp)
+////                .weight(.8f)
+//        ) {
+////            Spacer(modifier = )
+//            Column(
+//                modifier = modifier
+//                    .align(Alignment.BottomCenter)
+//                    .padding(Size20)
+//            ) {
+////                Spacer(modifier = modifier.weight(.6f))
+//                OutlinedTextField(
+//                    value = "",
+//                    onValueChange = {},
+//                    trailingIcon = { // Add the trailing icon here
+//                        val icon: @Composable () -> Unit = {
+//                            IconButton(
+//                                onClick = {},
+//                                modifier = modifier
+//                            ) {
+//                                Icon(
+//                                    imageVector = Icons.Default.Send,
+//                                    tint = colorResource(id = R.color.brown_1),
+//                                    contentDescription = "This is button send"
+//                                )
+//                            }
+//                        }
+//                        icon()
+//                    },
+//                    placeholder = {
+//                        Text(
+//                            text = "Ketik pertanyaanmu",
+//                            style = MaterialTheme.typography.bodySmall.copy(
+//                                color = Color.Gray
+//                            )
+//                        )
+//                    },
+//                    modifier = modifier
+//                        .fillMaxWidth()
+//                        .height(Size52)
+////                            .padding(Size20)
+//                )
             }
         }
     }
-}}
+
 
 //@Preview(showBackground = true, device = Devices.PIXEL_4)
 //@Composable
