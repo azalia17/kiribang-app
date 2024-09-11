@@ -67,10 +67,7 @@ import java.util.Locale
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier,
-//    viewModel: HomeViewModel = viewModel(
-////        factory = ViewModelFactory(Injection.provideRepository())
-//    ),
+
     navigateToDestinationMap: () -> Unit,
     ) {
     HomeContent(navigateToDestinationMap = navigateToDestinationMap)
