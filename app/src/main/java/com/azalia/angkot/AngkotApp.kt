@@ -1,10 +1,12 @@
 package com.azalia.angkot
 
 import android.app.Application
+import android.content.Context
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.BottomAppBar
@@ -104,13 +106,13 @@ fun BottomBar(
         val navigationItem = listOf(
             NavigationItem(
                 title = stringResource(id = R.string.home),
-                icon = Icons.Default.Home,
+                icon = Icons.Default.Notifications,
                 screen = Screen.DestinationMap,
                 contentDescription = stringResource(id = R.string.this_is_home)
             ),
             NavigationItem(
                 title = stringResource(id = R.string.chat),
-                icon = Icons.Default.Send,
+                icon = Icons.Default.Home,
                 screen = Screen.Home,
                 contentDescription = stringResource(id = R.string.this_is_chat)
             ),

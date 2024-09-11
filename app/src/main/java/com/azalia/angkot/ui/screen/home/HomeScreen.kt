@@ -1,24 +1,22 @@
 package com.azalia.angkot.ui.screen.home
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -29,35 +27,42 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.azalia.angkot.R
-import com.azalia.angkot.di.Injection
-import com.azalia.angkot.ui.ViewModelFactory
 import com.azalia.angkot.ui.theme.AngkotTheme
-import com.azalia.angkot.ui.theme.Size16
-import com.azalia.angkot.ui.theme.Size20
-import com.azalia.angkot.ui.theme.Size24
-import com.azalia.angkot.ui.theme.Size36
-import com.azalia.angkot.ui.theme.Size44
 import com.azalia.angkot.ui.theme.Size56
 import com.azalia.angkot.ui.theme.Size8
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.stringResource
+import com.azalia.angkot.domain.model.Message
 import com.azalia.angkot.ui.theme.Size52
 import com.azalia.angkot.ui.theme.Size60
 import com.azalia.angkot.ui.theme.Size88
+import com.azalia.angkot.utils.BotResponse
+import com.azalia.angkot.utils.Constants.RECEIVE_ID
+import com.google.android.gms.maps.model.LatLng
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import android.util.Log
+import com.azalia.angkot.utils.Route1
+import java.sql.Date
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 @Composable
@@ -77,7 +82,17 @@ fun HomeScreen(
 fun HomeContent(
     modifier: Modifier = Modifier,
     navigateToDestinationMap: () -> Unit,
-) {
+    state: LazyListState = rememberLazyListState(),
+    ) {
+    var msg by rememberSaveable { mutableStateOf("") }
+    val random = (0..3).random()
+    var chats by remember { mutableStateOf(emptyList<Message>()) }
+    var bubbles by remember { mutableStateOf(emptyList<String>()) }
+    val scope = rememberCoroutineScope()
+//    val scope = rememberCoroutineScope()
+
+//    val messages = bubbles.collectAsLazyPagingItems()
+
     Box(
         modifier = modifier
             .fillMaxHeight()
@@ -93,21 +108,6 @@ fun HomeContent(
                     .fillMaxWidth()
 //                    .clickable { navigateBack() }
             ) {
-//            Row {
-//                Icon(
-//                    imageVector = Icons.Rounded.ArrowBack,
-//                    contentDescription = "Back button",
-//                    modifier = modifier.clickable { navigateBack() })
-//                Text(
-//                    text = "Buat Alarm",
-//                    style = MaterialTheme.typography.bodySmall.copy(
-//                        fontWeight = FontWeight.Bold,
-//                        textAlign = TextAlign.Center,
-//                        fontSize = 16.sp
-//                    ),
-////                    modifier = modifier.align(Alignment.Center)
-//                )
-//            }
                 Text(
                     text = "Buat Alarm",
                     style = MaterialTheme.typography.bodySmall.copy(
@@ -121,20 +121,74 @@ fun HomeContent(
                     thickness = 1.dp,
                     color = Color.Gray,
                     modifier = modifier.align(Alignment.BottomCenter)
-                )}
-            Box (modifier = modifier
-                .fillMaxHeight()
-                .fillMaxWidth()) {
-                Column(modifier = modifier.fillMaxHeight()) {
-
+                )
+            }
+            Box(
+                modifier = modifier
+//                    .fillMaxHeight()
+                    .height(620.dp)
+                    .fillMaxWidth()
+            ) {
+                LazyColumn() {
+                    scope.launch {
+                        state.scrollToItem(0)
+                    }
+                    items(
+//                        count = bubbles.size,
+                        count = chats.size,
+//                        itemContent =
+                    ) { index ->
+//                        bubbles[index]?.let {
+//                            Bubble(isMine = true, text = it)
+//                        }
+                        chats[index]?.let {
+                            Bubble(isMine = it.isMine, text = it.message)
+                        }
+                    }
                 }
                 OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
+                    value = msg,
+                    onValueChange = { msg = it },
                     trailingIcon = { // Add the trailing icon here
                         val icon: @Composable () -> Unit = {
                             IconButton(
-                                onClick = {},
+                                onClick = {
+                                    val mess = Message(msg, isMine = true)
+                                    chats = chats + listOf(mess)
+//                                    bubbles = bubbles + listOf(msg)
+                                    Log.d("YourTag", "Message: $msg")
+                                    Log.d("YourTag", "mess: $mess")
+
+                                    print(msg)
+                                    print(mess)
+                                    val response = BotResponse.basicResponses(msg)
+                                    Log.d("YourTag", "Response: $response")
+                                    print(response)
+
+                                    //Adds it to our local list
+//                                            bubbles = bubbles + listOf(response)
+                                    val resp = Message(response, false)
+                                    chats = chats + listOf(resp)
+//                                    scope.launch {
+//                                        withContext(Dispatchers.Main) {
+//                                            //Gets the response
+//                                            val response = basicResponses(msg)
+//                                            Log.d("YourTag", "Response: $response")
+//                                            print(response)
+//
+//                                            //Adds it to our local list
+////                                            bubbles = bubbles + listOf(response)
+//                                            val resp = Message(response, false)
+//                                            chats = chats + listOf(resp)
+//
+//                                            //Inserts our message into the adapter
+//
+//                                            //Scrolls us to the position of the latest message
+//                                        }
+//                                    }
+                                    msg = ""
+
+                                },
                                 modifier = modifier
                             ) {
                                 Icon(
@@ -161,8 +215,173 @@ fun HomeContent(
 //                            .padding(Size20)
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun Bubble(
+    isMine: Boolean,
+    text: String,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+        horizontalAlignment = when { // 2
+            isMine -> Alignment.End
+            else -> Alignment.Start
+        },
+    ) {
+        Card(
+            modifier = Modifier.widthIn(max = 340.dp),
+            shape = cardShapeFor(isMine), // 3
+
+//            colors = when {
+//                isMine -> {
+//                    CardColors(containerColor = colorResource(id = R.color.brown_1))
+//                }
+//                else -> MaterialTheme.colors.secondary
+//            },
+        ) {
+            Text(
+                modifier = Modifier.padding(8.dp),
+                text = text,
+                color = when {
+                    isMine -> colorResource(id = R.color.brown_1)
+                    else -> colorResource(id = R.color.brown_1)
+                },
+            )
+        }
+//        Text( // 4
+//            text = messageItem.message.user.name,
+//            fontSize = 12.sp,
+//        )
+    }
+}
+
+@Composable
+fun cardShapeFor(isMine: Boolean): Shape {
+    val roundedCorners = RoundedCornerShape(16.dp)
+    return when {
+        isMine -> roundedCorners.copy(bottomEnd = CornerSize(0))
+        else -> roundedCorners.copy(bottomStart = CornerSize(0))
+    }
+}
+
+@Preview
+@Composable
+fun MyBubblePreview() {
+    AngkotTheme {
+        Bubble(isMine = false, text = "aa")
+    }
+}
+
+fun basicResponses(_message: String): String {
+    Log.d("YourTag", "Message botresponse.kt: $_message")
 
 
+
+    val random = (0..2).random()
+    val message =_message.toLowerCase(Locale.ROOT)
+
+    return when {
+
+        //Hello
+        message.contains("hello") -> {
+            when (random) {
+                0 -> "Hello there!"
+                1 -> "Halo"
+                else -> "error" }
+        }
+
+        //How are you?
+        message.contains("how are you") -> {
+            when (random) {
+                0 -> "I'm doing fine, thanks!"
+                1 -> "I'm hungry..."
+                2 -> "Pretty good! How about you?"
+                else -> "error"
+            }
+        }
+
+        //What time is it?
+        message.contains("time") || message.contains("?")-> {
+            val timeStamp = (System.currentTimeMillis())
+            val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
+            val date = sdf.format(Date(timeStamp))
+
+            date.toString()
+
+        }
+
+        //What Routes (1)
+        /*message.contains("from pasar senen") && message.contains("to") && message.contains("kampung melayu") ||
+                message.contains("from RSPAD") && message.contains("to") && message.contains("kampung melayu") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("") ||
+                message.contains("from ") && message.contains("to") && message.contains("")-> {
+            val timeStamp = (System.currentTimeMillis())
+            val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
+            val date = sdf.format(Date(timeStamp))
+
+            date.toString()
+
+        }*/
+
+        //What Routes (1)
+        message.contains("from") && message.contains("to") -> {
+            when {
+                message.contains("kampung melayu") && message.contains("pasar senen") -> {
+                    handleRouteRequest(message, "kampung melayu", "pasar senen")
+                }
+                message.contains("kampung melayu") && message.contains("rspad") -> {
+                    handleRouteRequest(message, "kampung melayu", "rspad")
+                }
+                message.contains("gang suzuki") && message.contains("sekolah cahaya sakti otista i") -> {
+                    handleRouteRequest(message, "gang suzuki", "sekolah cahaya sakti otista i")
+                }
+                else -> {
+                    "Please provide valid route information."
+                }
+            }
+        }
+
+        //When the programme doesn't understand...
+        else -> {
+            when (random) {
+                0 -> "Sorry, I don't understand..."
+                1 -> "Try asking me something different"
+                2 -> "Please let me know where are you at and where do you want to go, maybe you can use this template: I'm from ... and I want to go to ..."
+                else -> "error"
+            }
+        }
+    }
+}
+private fun handleRouteRequest(message: String, startLocation: String, endLocation: String): String {
+    val endLocationSubstring: String = message.substringAfterLast("to", "").trim().toLowerCase()
+    val startLocationSubstring: String = message.substringAfterLast("from", "").substringBefore("to").trim().toLowerCase()
+
+    return try {
+        val answer = Route1.routes(startLocationSubstring, endLocationSubstring)
+        "$answer"
+    } catch (e: Exception) {
+        "Error processing the route request."
+    }
+}
 
 //            Text(
 //                text = "Selamat Siang User!",
@@ -305,9 +524,9 @@ fun HomeContent(
 //                        .height(Size52)
 ////                            .padding(Size20)
 //                )
-            }
-        }
-    }
+//            }
+//        }
+//    }
 
 
 //@Preview(showBackground = true, device = Devices.PIXEL_4)

@@ -1,12 +1,14 @@
 package com.azalia.angkot.ui.screen.destination_map
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Application
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -50,6 +52,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
+import androidx.core.location.LocationManagerCompat.getCurrentLocation
 import com.azalia.angkot.R
 import com.azalia.angkot.di.Injection
 import com.azalia.angkot.ui.ViewModelFactory
@@ -58,6 +61,10 @@ import com.azalia.angkot.ui.screen.map.MapViewModel
 import com.azalia.angkot.ui.theme.AngkotTheme
 import com.azalia.angkot.ui.theme.Size24
 import com.azalia.angkot.ui.theme.Size60
+import com.azalia.angkot.utils.LocationClient
+import com.azalia.angkot.utils.LocationService
+import com.azalia.angkot.utils.addGeofence
+import com.azalia.angkot.utils.getLocation
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.GeofencingRequest
@@ -66,12 +73,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.CameraPositionState
+import com.google.maps.android.compose.Circle
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 
+@SuppressLint("MissingPermission")
 @Composable
 fun DestinationMap(
     viewModel: DestinationMapViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
@@ -84,116 +93,123 @@ fun DestinationMap(
     val uiSettings = remember {
         MapUiSettings(zoomControlsEnabled = true)
     }
+    val applicationContext: Context = LocalContext.current.applicationContext
+    var location by remember { mutableStateOf(LatLng(0.0, 0.0)) }
+    var isLocationFetched by remember { mutableStateOf(false) }
+
+
+    LaunchedEffect(Unit) {
+        getLocation(applicationContext) { loc ->
+            // Update the location when it's obtained
+            location = loc
+            isLocationFetched = true
+            Log.d("getloc fin", location.toString())
+        }
+    }
 
 //    val customColor = BitmapDescriptorFactory.defaultMarker(200f) // Change 200f to your desired hue value
 
 
-    Column {
-
-        Box(
-            modifier = modifier
-                .height(Size60)
-                .fillMaxWidth()
-                .clickable { navigateBack() }
-        ) {
-            IconButton(
-                onClick = {  },
+    if (isLocationFetched){
+        Column {
+            Box(
                 modifier = modifier
-                    .padding(16.dp)
-                    .size(40.dp)
-                    .align(alignment = Alignment.CenterEnd)
-            ){
-                Icon(
-                    imageVector = Icons.Default.Notifications,
-                    contentDescription = "back",
-                    modifier = modifier,
-                )
-            }
-            Text(
-                text = "Buat Alarm",
-                style = MaterialTheme.typography.bodySmall.copy(
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                    fontSize = 16.sp
-                ),
+                    .height(Size60)
+                    .fillMaxWidth()
+                    .clickable { navigateBack() }
+            ) {
+                IconButton(
+                    onClick = {
+//                    if ()
+                        Intent(applicationContext, LocationService::class.java).apply {
+                            action = LocationService.ACTION_START
+//                              startService(this)
+                            applicationContext.startService(this)
+                        }
+                    },
+                    modifier = modifier
+                        .padding(16.dp)
+                        .size(40.dp)
+                        .align(alignment = Alignment.CenterEnd)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Notifications,
+                        contentDescription = "back",
+                        modifier = modifier,
+                    )
+                }
+                Text(
+                    text = "Buat Alarm",
+                    style = MaterialTheme.typography.bodySmall.copy(
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        fontSize = 16.sp
+                    ),
                     modifier = modifier.align(Alignment.Center)
-            )
-            Divider(
-                thickness = 1.dp,
-                color = Color.Gray,
-                modifier = modifier.align(Alignment.BottomCenter)
-            )
-        }
-        GoogleMap(
-            modifier = modifier.fillMaxSize(),
-            properties = viewModel.state.properties,
-            uiSettings = uiSettings,
-//            cameraPositionState = CameraPositionState(position = ),
-            onMapLongClick = {
-//                viewModel.onEvent(DestinationMapEvent.onMapLongClick(it))
-                markers = markers + listOf(it)
-            },
-            cameraPositionState = rememberCameraPositionState {
-                position = CameraPosition.fromLatLngZoom(LatLng(-6.175110, 106.865036), 15f)
-            }
-
-        ) {
-            Marker(
-                state = MarkerState(
-                    position = LatLng(-6.175110, 106.865036)
-                ),
-                title = "You are here",
-//                icon = BitmapDescriptorFactory.defaultMarker(200f)
-            )
-            markers.forEachIndexed { index, markerPosition ->
-                Marker(
-                    state = MarkerState(position = markerPosition),
-                    title = "Alarm akan menyala saat kamu memasuki area ini",
-                    icon = BitmapDescriptorFactory.defaultMarker(30f),
-                    snippet = "Setelah pin lokasi, klik icon bel di atas"
+                )
+                Divider(
+                    thickness = 1.dp,
+                    color = Color.Gray,
+                    modifier = modifier.align(Alignment.BottomCenter)
                 )
             }
-//            Marker(
-//                state = MarkerState(
-//                    position = LatLng(-6.18, 106.865036)
-//                ),
-//                title = "You will get reminder in here",
-//                icon = BitmapDescriptorFactory.defaultMarker(30f)
-//            )
+            GoogleMap(
+                modifier = modifier.fillMaxSize(),
+                properties = viewModel.state.properties,
+                uiSettings = uiSettings,
+//            cameraPositionState = CameraPositionState(position = ),
+                onMapLongClick = {
+//                viewModel.onEvent(DestinationMapEvent.onMapLongClick(it))
+                    markers = markers + listOf(it)
+                    addGeofence(it, applicationContext)
+                },
+                cameraPositionState = rememberCameraPositionState {
+//                getLocation(applicationContext) {
+//                    location = it
+//                }
+//                position = CameraPosition.fromLatLngZoom(LatLng(-6.175110, 106.865036), 15f)
+                    position = CameraPosition.fromLatLngZoom(location, 15f)
+                    Log.d("location", location.toString())
+                }
 
-//            viewModel.state.angkotSpots.forEach{ spot ->
-//                Marker(
-//                    state = MarkerState(
-//                        position = LatLng(spot.lat, spot.lng),
-//                    ),
-//                    title = "This is where you want to be reminded",
-//                    snippet = "Long click to delete",
-//                    onInfoWindowClick = {
-////                        viewModel.onEvent(DestinationMapEvent.onInfoWindowLongClick(spot))
-//                    }
-//
-//                )
-//
-//            }
+            ) {
+                Marker(
+                    state = MarkerState(
+                        position = LatLng(-6.175110, 106.865036)
+//                    position = location
+                    ),
+                    title = "You are here",
+//                icon = BitmapDescriptorFactory.defaultMarker(200f)
+                )
+
+                Marker(
+                    state = MarkerState(
+//                    position = LatLng(-6.175110, 106.865036)
+                        position = location
+                    ),
+                    title = "You are here",
+//                icon = BitmapDescriptorFactory.defaultMarker(200f)
+                )
+                markers.forEachIndexed { index, markerPosition ->
+                    Circle(
+                        center = markerPosition,
+                        fillColor = colorResource(id = R.color.brown_1).copy(alpha = .5F),
+                        radius = 100.0,
+                        strokeColor = colorResource(id = R.color.brown_1),
+                        strokeWidth = 5.0f
+
+                    )
+
+                }
+            }
         }
-        FloatingActionButton(onClick = { /*TODO*/ }, containerColor = colorResource(id = R.color.brown_1),
-            modifier = modifier
-                .align(Alignment.End)
-                .padding(16.dp),
-            shape = CircleShape
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.alarm),
-                contentDescription = "This is button add alarm",
-                tint = Color.White,
-                modifier = modifier
-                    .height(Size24)
-                    .width(Size24)
-//                    .align(Alignment.Center)
-            )
-        }
+    } else {
+        Text("Loading location...")
+
     }
 }
+
+
 //    val uiSettings = remember {
 //        MapUiSettings(zoomControlsEnabled = true)
 //    }

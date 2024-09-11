@@ -2,25 +2,23 @@ package com.azalia.angkot.utils
 
 import java.sql.Date
 import java.text.SimpleDateFormat
+import java.util.Locale
+import android.util.Log
 
 object BotResponse {
-
     fun basicResponses(_message: String): String {
+        Log.d("YourTag", "Message botresponse.kt: $_message")
 
         val random = (0..2).random()
-        val message =_message.toLowerCase()
+        val message =_message.toLowerCase(Locale.ROOT)
 
         return when {
-
-            //Hello
             message.contains("hello") -> {
                 when (random) {
                     0 -> "Hello there!"
                     1 -> "Halo"
                     else -> "error" }
             }
-
-            //How are you?
             message.contains("how are you") -> {
                 when (random) {
                     0 -> "I'm doing fine, thanks!"
@@ -29,45 +27,12 @@ object BotResponse {
                     else -> "error"
                 }
             }
-
-            //What time is it?
             message.contains("time") || message.contains("?")-> {
                 val timeStamp = (System.currentTimeMillis())
                 val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
                 val date = sdf.format(Date(timeStamp))
-
                 date.toString()
-
             }
-
-            //What Routes (1)
-            /*message.contains("from pasar senen") && message.contains("to") && message.contains("kampung melayu") ||
-                    message.contains("from RSPAD") && message.contains("to") && message.contains("kampung melayu") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("") ||
-                    message.contains("from ") && message.contains("to") && message.contains("")-> {
-                val timeStamp = (System.currentTimeMillis())
-                val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
-                val date = sdf.format(Date(timeStamp))
-
-                date.toString()
-
-            }*/
-
-            //What Routes (1)
             message.contains("from") && message.contains("to") -> {
                 when {
                     message.contains("kampung melayu") && message.contains("pasar senen") -> {
@@ -84,13 +49,12 @@ object BotResponse {
                     }
                 }
             }
-
-            //When the programme doesn't understand...
             else -> {
                 when (random) {
                     0 -> "Sorry, I don't understand..."
                     1 -> "Try asking me something different"
-                    2 -> "Please let me know where are you at and where do you want to go, maybe you can use this template: I'm from ... and I want to go to ..."
+                    2 -> "Please let me know where are you at and where do you want to go, maybe you can use this template: " +
+                            "I'm from ... and I want to go to ..."
                     else -> "error"
                 }
             }
